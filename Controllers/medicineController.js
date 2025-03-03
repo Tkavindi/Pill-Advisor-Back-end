@@ -5,7 +5,6 @@ const apiKey = process.env.GOOGLE_API_KEY; // Securely access the key
 
 const genAI = new GoogleGenerativeAI(apiKey);
 
-
 const getMedicineInfo = async (req, res) => {
     try {
         const medicine = req.body.name;
@@ -43,7 +42,7 @@ const getMedicineInfo = async (req, res) => {
         res.json(response);
     } catch (error) {
         console.error('Error:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
+        res.status(500).json({ error: error});
     }
 };
 
